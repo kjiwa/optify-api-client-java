@@ -5,7 +5,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.text.Format;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -13,6 +13,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.TimeZone;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,7 +35,7 @@ import com.optify.service.parameter.GetVisitorsParameters;
 
 public class OptifyServiceImpl implements OptifyService {
     private String _accessToken;
-    private Format _f;
+    private DateFormat _f;
     private String _url;
     
     public OptifyServiceImpl(String accessToken) {
@@ -43,8 +44,9 @@ public class OptifyServiceImpl implements OptifyService {
     
     public OptifyServiceImpl(String accessToken, String url) {
         _accessToken = accessToken;
-        _f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         _url = url;
+        _f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        _f.setTimeZone(TimeZone.getTimeZone("GMT"));
     }
     
     public String whoAmI() throws BadRequestException, UnauthorizedException {
