@@ -2,8 +2,8 @@
  <modelVersion>4.0.0</modelVersion>
  <groupId>com.optify</groupId>
  <artifactId>optify-api</artifactId>
- <version>0.0.1-SNAPSHOT</version>
- <name>Optify API</name>
+ <version>1.0.0</version>
+ <name>Optify API Client for Java</name>
  <build>
   <plugins>
    <plugin>
